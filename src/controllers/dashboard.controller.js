@@ -11,7 +11,7 @@ const dashboardController = asyncErrorHandler(async (req, res) => {
         },
     ])
 
-    const bookings = await TableBookingModel.aggregate([
+    const bookings = await PostModel.aggregate([
         {
             $count: "bookings",
         },

@@ -3,7 +3,7 @@
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Bookings - AlphaBytes</title>
+        <title>Bookings - Turtles</title>
         <link
             href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
             rel="stylesheet"
@@ -38,7 +38,7 @@
                         class="ml-6 text-lg font-bold text-gray-800 dark:text-gray-200"
                         href="#"
                     >
-                        AlphaBytes
+                        Turtles
                     </a>
                     <ul class="mt-6">
                         <li class="relative px-6 py-3">
@@ -217,7 +217,7 @@
                         class="ml-6 text-lg font-bold text-gray-800 dark:text-gray-200"
                         href="#"
                     >
-                        AlphaBytes
+                        Turtles
                     </a>
                     <ul class="mt-6">
                         <li class="relative px-6 py-3">
@@ -530,25 +530,37 @@
                                 <h6
                                     class="mb-4 font-regular dark:text-gray-300"
                                 >
-                                    Phone: <%= data[i].phone %>
+                                    Email: <%= data[i].email %>
                                 </h6>
                                 <h6
                                     class="mb-4 font-regular dark:text-gray-300"
                                 >
-                                    Number of persons: <%=
-                                    data[i].number_of_people %>
+                                    Address: <%= data[i].address %>
                                 </h6>
                                 <h4
                                     class="mb-4 font-regular dark:text-gray-300"
                                 >
-                                    Special Requests: <%=
-                                    data[i].special_request %>
+                                    Phone: <%= data[i].phone %>
                                 </h4>
                                 <h4
                                     class="mb-4 font-regular dark:text-gray-300"
                                 >
-                                    Booking Date & Time: <%=
-                                    data[i].date.toLocaleString() %>
+                                    Course: <%= data[i].course %>
+                                </h4>
+                                <h4
+                                    class="mb-4 font-regular dark:text-gray-300"
+                                >
+                                    Aadhaar Number: <%= data[i].aadhaar %>
+                                </h4>
+                                <h4
+                                    class="mb-4 font-regular dark:text-gray-300"
+                                >
+                                    Parent: <%= data[i].parent %>
+                                </h4>
+                                <h4
+                                    class="mb-4 font-regular dark:text-gray-300"
+                                >
+                                    Parent Number: <%= data[i].parent_phone %>
                                 </h4>
                                 <h4
                                     class="mb-4 font-regular dark:text-gray-300"

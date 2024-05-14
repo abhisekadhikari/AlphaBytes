@@ -32,15 +32,6 @@ const bookTable = asyncErrorHandler(async (req, res) => {
             status: false,
         })
 
-    const imageUrl = []
-    const imageId = []
-
-    for (const file of req.files) {
-        const image = await imageUploader(file.path, "course-enrollments")
-        imageUrl.push(image.secure_url)
-        imageId.push(image.public_id)
-    }
-
     await PostModel.create({
         name,
         email,
@@ -50,8 +41,12 @@ const bookTable = asyncErrorHandler(async (req, res) => {
         aadhaar,
         parent,
         parent_phone,
-        image: imageUrl,
-        imageId: imageId,
+    })
+
+    res.status(201).json({
+        message:
+            "Your booking has been successfully submitted. We will get back to you shortly. Thank you for choosing us.",
+        status: true,
     })
 })
 
@@ -82,8 +77,6 @@ const deleteBookings = asyncErrorHandler(async (req, res) => {
             status: false,
         })
     }
-
-    await imageRemover(result.imageId)
 
     res.status(StatusCodes.OK).json({
         message:
