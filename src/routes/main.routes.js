@@ -5,16 +5,17 @@ const { signinRoutes } = require("./signin.routes")
 const checkAuth = require("../middleware/checkAuth.middleware")
 const isLoggedIn = require("../middleware/isLoggedIn.middleware")
 const { postRoute } = require("./post.routes")
-const { PostModel } = require("../models/post.model")
+const { PostModel } = require("../models/enroll.model")
 const { tableRoutes } = require("./table_booking.routes")
 const { getBookings } = require("../controllers/table.controller")
 const { getPosts } = require("../controllers/post.controller")
+const { Course } = require("../models/course.model")
 
 mainRoutes.use("/auth", checkAuth, signinRoutes)
 
-mainRoutes.route("/all-posts").get(getPosts)
+mainRoutes.route("/courses").get(getPosts)
 
-mainRoutes.use("/book-table", tableRoutes)
+mainRoutes.use("/book-course", tableRoutes)
 
 mainRoutes.use("/contact", contactRoutes)
 
@@ -25,8 +26,8 @@ mainRoutes.use("/addpost", postRoute)
 mainRoutes.route("/bookings").get(getBookings)
 
 mainRoutes.get("/posts", isLoggedIn, async (req, res) => {
-    const posts = await PostModel.find()
-    res.render("posts", { data: posts })
+    const course = await Course.find()
+    res.render("posts", { data: course })
 })
 
 mainRoutes.route("/logout").get((req, res) => {

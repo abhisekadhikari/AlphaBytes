@@ -1,13 +1,14 @@
-const { PostModel } = require("../models/post.model")
+const { PostModel } = require("../models/enroll.model")
+const { Course } = require("../models/course.model")
 const asyncErrorHandler = require("../utils/asyncErrorHandler")
 const { imageUploader, imageRemover } = require("../utils/imageHandler")
 const mongoose = require("mongoose")
 const { StatusCodes } = require("http-status-codes")
 
 const addPost = asyncErrorHandler(async (req, res) => {
-    const { title, content } = req.body
+    const { name, duration, description, cost } = req.body
 
-    if (!title || !content || !req.files)
+    if (!name || !duration || !description || !cost)
         return res.status(400).json({
             message:
                 "Please ensure all fields are filled out before submitting the form. Thank you.",
@@ -18,14 +19,16 @@ const addPost = asyncErrorHandler(async (req, res) => {
     const imageId = []
 
     for (const file of req.files) {
-        const image = await imageUploader(file.path, "posts")
+        const image = await imageUploader(file.path, "course-enrollments")
         imageUrl.push(image.secure_url)
         imageId.push(image.public_id)
     }
 
-    await PostModel.create({
-        title,
-        content,
+    await Course.create({
+        name,
+        duration,
+        description,
+        cost,
         image: imageUrl,
         imageId: imageId,
     })
@@ -40,18 +43,18 @@ const renderPost = asyncErrorHandler(async (req, res) => {
 })
 
 const getPosts = asyncErrorHandler(async (req, res) => {
-    const posts = await PostModel.find()
+    const courses = await Course.find()
 
-    if (!posts.length)
+    if (!courses.length)
         return res.status(404).json({
-            message: "No posts found",
+            message: "No courses found",
             status: false,
         })
 
     res.status(200).json({
-        message: "Posts fetched successfully",
+        message: "courses fetched successfully",
         status: true,
-        data: posts,
+        data: courses,
     })
 })
 

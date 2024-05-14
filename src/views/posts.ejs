@@ -440,7 +440,7 @@
                                 <h2
                                     class="my-6 text-2xl font-semibold text-gray-700 dark:text-gray-200"
                                 >
-                                    Posts
+                                    Courses
                                 </h2>
 
                                 <!-- Responsive cards -->
@@ -484,12 +484,23 @@
                                         <h4
                                             class="mb-4 font-semibold text-gray-600 dark:text-gray-300"
                                         >
-                                            Title: <%= data[i].title %>
+                                            Name: <%= data[i].name %>
                                         </h4>
                                         <h6
                                             class="mb-4 font-regular dark:text-gray-300"
                                         >
-                                            Description: <%= data[i].content %>
+                                            Duration: <%= data[i].duration %>
+                                        </h6>
+                                        <h6
+                                            class="mb-4 font-regular dark:text-gray-300"
+                                        >
+                                            Description: <%= data[i].description
+                                            %>
+                                        </h6>
+                                        <h6
+                                            class="mb-4 font-regular dark:text-gray-300"
+                                        >
+                                            Cost: ₹ <%= data[i].cost %>
                                         </h6>
                                         <h4
                                             class="mb-4 font-semibold dark:text-gray-300"

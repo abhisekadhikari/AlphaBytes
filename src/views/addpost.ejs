@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Add Posts</title>
+    <title>AlphaBytes</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
         rel="stylesheet" />
     <link rel="stylesheet" href="./assets/css/tailwind.output.css" />
@@ -287,7 +287,7 @@
             </header>
             <div class="container mx-auto grid bg-black-900 ">
                 <h2 class="my-6 text-2xl font-semibold text-gray-700 dark:text-gray-200" style="color: #626060;">
-                    Add Your Post.
+                    Create Course
                 </h2>
 
                 <!-- Responsive cards -->
@@ -295,17 +295,23 @@
                     style="margin :0; display: flex; justify-content: center; gap: 2rem; flex-wrap: wrap; align-items: center;">
                     <article class="information [ card ]" id="myArticle"
                         style="border: 2px solid #7e3af2; height: 20rem; padding: 1rem; border-radius: 2rem; height: 25rem; display: flex; justify-content: center; flex-direction: column; justify-content: space-evenly; ">
-                        <span class="tag"
-                            style="color: #413f3f; font-size: 1.7rem; font-weight: bold; color: #b0a6a6; ">
-                            Post
-                        </span>
+                       
                         <div class="test" style="display: flex; flex-direction: column;gap: 1rem; ">
                             <form action="/addpost" enctype="multipart/form-data" method="post"
                                 style="display: flex; flex-direction: column; gap: 1rem;">
 
                                 <input type="text"
                                     style=" border-radius: 1rem;  display: block;  width: 15rem; height: 3rem; text-align: left; padding: 10px 13px; font-weight: 500;border:2px solid #7e3af2; border-radius: 1rem; color: #413f3f;"
-                                    placeholder="Enter Your Title" name="title">
+                                    placeholder="Enter Your Title" name="name">
+
+                                    <input type="number"
+                                    style=" border-radius: 1rem;  display: block;  width: 15rem; height: 3rem; text-align: left; padding: 10px 13px; font-weight: 500;border:2px solid #7e3af2; border-radius: 1rem; color: #413f3f;"
+                                    placeholder="Enter Course Cost" name="cost">
+
+                                    <input type="text"
+                                    style=" border-radius: 1rem;  display: block;  width: 15rem; height: 3rem; text-align: left; padding: 10px 13px; font-weight: 500;border:2px solid #7e3af2; border-radius: 1rem; color: #413f3f;"
+                                    placeholder="Enter Course Duration" name="duration">
+
                                 <div class="input-file"
                                     style=" width: 15rem; height: 3rem; border:2px solid #7e3af2; border-radius: 1rem; color: #413f3f;  background: white;">
 
@@ -319,9 +325,9 @@
                                 <span id="thiSpan" style="display: flex; justify-content:start;">
                                     <img src="#" alt="" id="blah" alt="lo" />
                                 </span>
-                                <textarea name="content" id="" cols="30" rows="3"
+                                <textarea name="description" id="" cols="30" rows="3"
                                     style=" border-radius: 0.5rem; text-transform: capitalize; color:#413f3f; border: 2px solid #7e3af2; outline: #7e3af2;"
-                                    placeholder="enter text here"></textarea>
+                                    placeholder="Enter Course  Description"></textarea>
                                 <button class="button" style="border: 2px solid #7e3af2; border-radius: 1rem; color: #413f3f; width: 10rem; display: flex;
               flex-direction: row; justify-content: space-around; align-items: center;height: 3rem;
               ">

@@ -7,6 +7,7 @@ const { mainRoutes } = require("./routes/main.routes")
 const expressSessions = require("express-session")
 const cors = require("cors")
 const ApiError = require("./utils/ApiError")
+const { log } = require("console")
 
 require("./strategy/local.strategy")
 
@@ -49,6 +50,7 @@ app.all("*", (req, res) => {
 })
 
 app.use((err, req, res, next) => {
+    console.error(err)
     if (err instanceof ApiError)
         res.status(err.statusCode).json({
             status: false,
