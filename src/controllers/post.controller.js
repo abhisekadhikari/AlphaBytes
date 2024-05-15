@@ -63,17 +63,17 @@ const deletePost = asyncErrorHandler(async (req, res) => {
     if (!id || !mongoose.Types.ObjectId.isValid(id)) {
         return res.status(StatusCodes.BAD_REQUEST).json({
             message:
-                "Please provide a valid post ID to proceed with the deletion. Thank you.",
+                "Please provide a valid ID to proceed with the deletion. Thank you.",
             status: false,
         })
     }
 
-    const result = await PostModel.findByIdAndDelete(id)
+    const result = await Course.findByIdAndDelete(id)
 
     if (result === null) {
         return res.status(StatusCodes.NOT_FOUND).json({
             message:
-                "The post you are attempting to delete does not exist in the records. It may have already been removed or does not match any existing posts. Please verify the post details and try again.",
+                "The post you are attempting to delete does not exist in the records. It may have already been removed or does not match any existing courses. Please verify the post details and try again.",
             status: false,
         })
     }
@@ -82,7 +82,7 @@ const deletePost = asyncErrorHandler(async (req, res) => {
 
     res.status(StatusCodes.OK).json({
         message:
-            "Post successfully deleted. It has been removed from system. Thank you for managing your posts.",
+            "Post successfully deleted. It has been removed from system. Thank you for managing your courses.",
         status: true,
     })
 })

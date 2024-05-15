@@ -9,7 +9,7 @@ const getContacts = asyncErrorHandler(async (req, res) => {
 const createContact = asyncErrorHandler(async (req, res) => {
     const { name, email, subject, message } = req.body
 
-    const captcha = req.body["g-recaptcha-response"]
+    /* const captcha = req.body["g-recaptcha-response"]
 
     const params = new URLSearchParams({
         secret: process.env.RECAPTCHA_SECRET,
@@ -32,7 +32,7 @@ const createContact = asyncErrorHandler(async (req, res) => {
             status: false,
             message:
                 "The CAPTCHA verification failed. Please try again to ensure that you are not a robot.",
-        })
+        }) */
 
     if (!name || !email || !subject || !message)
         return res.status(400).json({
