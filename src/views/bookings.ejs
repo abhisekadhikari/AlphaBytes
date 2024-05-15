@@ -680,7 +680,7 @@
                     confirmButtonText: "Yes, delete it!",
                 }).then((result) => {
                     if (result.isConfirmed) {
-                        fetch(`book-table/delete?id=${id}`, {
+                        fetch(`book-course/delete?id=${id}`, {
                             "Content-Type": "application/json",
                             method: "DELETE",
                         })
